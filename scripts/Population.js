@@ -50,14 +50,14 @@ class Component {
 
                 <img src="${this.image.mobile}">
               </picture>
-              <button class="button item__thumbnail-button">
+              <button class="button item__thumbnail-button" data-js-button>
                 <span class="icon icon--cart">Add to Cart</span>
               </button>
             </div>
-            <div class="item__description">
+            <div class="item__description" data-js-description>
               <p class="item__subtitle">${this.category}</p>
-              <p class="item__title">${this.name}</p>
-              <p class="item__price">${this.price.toFixed(2)}$</p>
+              <p class="item__title" data-js-item-title>${this.name}</p>
+              <p class="item__price" data-js-item-price>${this.price.toFixed(2)}$</p>
             </div>
           </li>`
     }

@@ -1,0 +1,39 @@
+@use '../helpers' as *;
+
+.cancel {
+    position: relative;
+    background-color: transparent;
+    color: var(--rose-300);
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    @include square(rem(18));
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    padding: 3px;
+    transition-duration: .2s;
+
+    & > img {
+        object-fit: cover;
+    }
+
+    &:hover {
+        border-color: var(--rose-500);
+        color: var(--rose-500  );
+    }
+
+    &::before {
+        content: '';
+        
+        position: absolute;
+        top: -20px;
+        bottom: -20px;
+        left: -20px;
+        right: -20px;
+
+    }
+
+    & svg {
+        color: currentColor;
+    }
+}
