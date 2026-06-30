@@ -32,6 +32,7 @@ svg * {
 
 body {
   font-family: var(--font-base);
+  background-color: var(--rose-50);
 }
 
 /**
@@ -316,6 +317,8 @@ svg * {
 }
 .item__thumbnail-image {
   border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .item__thumbnail-button {
   position: absolute;
@@ -330,25 +333,81 @@ svg * {
 .item__title {
   color: var(--rose-900);
   font-weight: 600;
-  font-size: clamp(1.125rem, 1.0612745098rem + 0.2614379085vw, 1.375rem);
+  font-size: clamp(1.125rem, 1.0931372549rem + 0.1307189542vw, 1.25rem);
 }
 .item__price {
-  font-size: clamp(1.125rem, 1.0931372549rem + 0.1307189542vw, 1.25rem);
+  font-size: clamp(1rem, 0.9681372549rem + 0.1307189542vw, 1.125rem);
   font-weight: 700;
   color: var(--color-red);
 }
 
 .list {
+  --columns: 3;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  align-items: start;
+  grid-template-columns: repeat(var(--columns), auto);
+}
+@media (width <= 63.99875rem) {
+  .list {
+    --columns: 2;
+  }
+}
+@media (width <= 47.99875rem) {
+  .list {
+    --columns: 1;
+    justify-content: center;
+  }
 }
 
+.section {
+  padding: 4rem 1rem;
+}
+@media (width <= 47.99875rem) {
+  .section {
+    padding: 2rem 0;
+  }
+}
 .section__title {
   font-size: clamp(1.5rem, 1.1176470588rem + 1.568627451vw, 3rem);
 }
 .section__body {
   display: grid;
   grid-template-columns: auto 1fr;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+@media (width <= 47.99875rem) {
+  .section__body {
+    grid-template-columns: auto;
+    row-gap: 2rem;
+  }
+}
+.section__main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.cart-empty {
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  min-width: 15.625rem;
+}
+.cart-empty__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+.cart-empty__item-count {
+  color: var(--color-red);
+  font-size: clamp(1.375rem, 1.3112745098rem + 0.2614379085vw, 1.625rem);
+  font-weight: 700;
+}
+.cart-empty__description {
+  color: var(--rose-400);
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */

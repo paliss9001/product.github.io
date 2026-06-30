@@ -5,7 +5,6 @@
     flex-direction: column;
     row-gap: 2.5rem;
 
-
     &__thumbnail {
         position: relative;
         --button-height: #{rem(45)};
@@ -13,9 +12,11 @@
         flex-direction: column;
         width: fit-content;
         
-
         &-image {
             border-radius: 20px;
+            object-fit: cover;
+            // width: 100%;
+            // height: auto;
         }
 
         &-button {
@@ -34,11 +35,11 @@
     &__title {
         color: var(--rose-900);
         font-weight: 600;
-        @include fluid-text(22, 18)        
+        @include fluid-text(20, 18)        
     }
 
     &__price {
-        @include fluid-text(20, 18);
+        @include fluid-text(18, 16);
         font-weight: 700;
         color: var(--color-red);
     }

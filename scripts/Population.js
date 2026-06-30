@@ -5,19 +5,16 @@ class Population {
 
     populate() {
         fetch('../data.json')
-            .then(response => response.json())
-            .then(json => {
-                
-                for (const dessert of json) {
-                    const {image: imageCollection, name, category, price} = dessert
-                    const image = imageCollection.desktop
+        .then(response => response.json())
+        .then(json => {
+            
+            for (const dessert of json) {
+                const {image, name, category, price} = dessert
+                // const image = imageCollection
 
-                    const div = document.createElement('div')
-                    new Component(image, name, category, price)
-
-                    document.body.append(div)
-                }
-            })
+                new Component(image, name, category, price)
+            }
+        })
     }
 
 }
@@ -38,6 +35,7 @@ class Component {
         this.name = name
         this.category = category
         this.price = price
+
         this.create()
     }
 
@@ -45,7 +43,13 @@ class Component {
         this.root.innerHTML +=
         `<li class="item" data-js-item>
             <div class="item__thumbnail">
-              <img src="${this.image}" class="item__thumbnail-image" width="250" height="280" alt="">
+              <picture>
+                <source srcset=${this.image.desktop} media="(min-width: 1440px)">
+
+                <source srcset=${this.image.tablet} media="(min-width: 1023px)">
+
+                <img src="${this.image.mobile}">
+              </picture>
               <button class="button item__thumbnail-button">
                 <span class="icon icon--cart">Add to Cart</span>
               </button>

@@ -1,6 +1,13 @@
 @use '../helpers/' as *;
 
 .section {
+    padding: 4rem 1rem;
+
+
+    @include mobile {
+        padding: 2rem 0;
+    }
+
     &__title {
         @include fluid-text(48, 24)
     }
@@ -8,5 +15,17 @@
     &__body {
         display: grid;
         grid-template-columns: auto 1fr;
+        column-gap: 2rem;
+
+        @include mobile {
+            grid-template-columns: auto;
+            row-gap: 2rem;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
     }
 }
