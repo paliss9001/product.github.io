@@ -1,0 +1,12 @@
+@use '../helpers/' as *;
+
+.section {
+    &__title {
+        @include fluid-text(48, 24)
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+}

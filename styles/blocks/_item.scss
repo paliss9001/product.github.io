@@ -1,0 +1,45 @@
+@use '../helpers/' as *;
+
+.item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+
+
+    &__thumbnail {
+        position: relative;
+        --button-height: #{rem(45)};
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        
+
+        &-image {
+            border-radius: 20px;
+        }
+
+        &-button {
+            position: absolute;
+            min-height: var(--button-height);
+            top: calc(100% - (var(--button-height) / 2));
+            left: 50%;
+            translate: -50%;
+        }
+    }
+
+    &__subtitle {
+        color: var(--rose-500);
+    }
+
+    &__title {
+        color: var(--rose-900);
+        font-weight: 600;
+        @include fluid-text(22, 18)        
+    }
+
+    &__price {
+        @include fluid-text(20, 18);
+        font-weight: 700;
+        color: var(--color-red);
+    }
+}

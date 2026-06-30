@@ -1,0 +1,19 @@
+@use '../helpers/' as *;
+
+.icon {
+    display: inline-flex;
+    column-gap: .4rem;
+
+    &::before {
+        content: '';
+
+        @include square(rem(24));
+        background-position: center;
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+
+    &--cart::before {
+        background-image: url('../../assets/images/icon-add-to-cart.svg');
+    }
+}
