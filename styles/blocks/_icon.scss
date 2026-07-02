@@ -1,19 +1,25 @@
-@use '../helpers/' as *;
+@use '../helpers' as *;
 
 .icon {
     display: inline-flex;
-    column-gap: .4rem;
+    column-gap: rem(6);
+    align-items: center;
 
     &::before {
         content: '';
 
         @include square(rem(24));
         background-position: center;
-        background-size:contain;
         background-repeat: no-repeat;
+        background-size: contain;
     }
 
     &--cart::before {
         background-image: url('../../assets/images/icon-add-to-cart.svg');
+        display: inline;
+    }
+
+    &--carbon::before {
+        background-image: url('../../assets/images/icon-carbon-neutral.svg');
     }
 }

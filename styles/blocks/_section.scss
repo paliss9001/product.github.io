@@ -1,31 +1,41 @@
-@use '../helpers/' as *;
+@use '../helpers' as *;
+
+picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
 .section {
-    padding: 4rem 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: rem(35);
+    padding-block: 2rem;
 
+    & img {
+        border-radius: 12px;
+        width: 100%;
+        height: 100%;
+    }
 
     @include mobile {
-        padding: 2rem 0;
+        grid-template-columns: 1fr;
     }
 
-    &__title {
-        @include fluid-text(48, 24)
-    }
+    &__list {
+        --columns: 3;
 
-    &__body {
         display: grid;
-        grid-template-columns: auto 1fr;
-        column-gap: 2rem;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        gap: rem(25);
+
+        @include tablet {
+            --columns: 2;
+            // grid-template-columns: repe;
+        }
 
         @include mobile {
-            grid-template-columns: auto;
-            row-gap: 2rem;
+            --columns: 1;
         }
-    }
-
-    &__main {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1rem;
     }
 }

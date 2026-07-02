@@ -1,66 +1,69 @@
 class Population {
+
     constructor() {
+        this.getData()
+    }
+
+    getData() {
+        fetch('../data.json')
+            .then(response => response.json())
+            .then(json => {
+                
+                for (const dessert of json) {
+                    const {name, category, price, image} = dessert
+
+                    new Component(name, category, price, image)
+                }
+            })
+    }
+}
+
+class Component {
+    selectors = {
+        dessertList: '[data-dessert-list]',
+    }
+
+    constructor(name, category, price, imageCollection) {
+        this.dessertList = document.querySelector(this.selectors.dessertList);
+        this.name = name;
+        this.category = category
+        this.price = price
+        this.imageCollection = imageCollection
+        this.bindEvents()
         this.populate()
     }
 
     populate() {
-        fetch('../data.json')
-        .then(response => response.json())
-        .then(json => {
-            
-            for (const dessert of json) {
-                const {image, name, category, price} = dessert
-                // const image = imageCollection
-
-                new Component(image, name, category, price)
-            }
-        })
-    }
-
-}
-
-class Component {
-
-    selectors = {
-        root: '[data-js-list]' 
-    }
-
-    classes = {
-        componentClass: '[data-js-item]'
-    }
-
-    constructor(image, name, category, price) {
-        this.root = document.querySelector(this.selectors.root)
-        this.image = image
-        this.name = name
-        this.category = category
-        this.price = price
-
-        this.create()
-    }
-
-    create() {
-        this.root.innerHTML +=
-        `<li class="item" data-js-item>
-            <div class="item__thumbnail">
-              <picture>
-                <source srcset=${this.image.desktop} media="(min-width: 1440px)">
-
-                <source srcset=${this.image.tablet} media="(min-width: 1023px)">
-
-                <img src="${this.image.mobile}">
-              </picture>
-              <button class="button item__thumbnail-button" data-js-button>
-                <span class="icon icon--cart">Add to Cart</span>
-              </button>
+        this.dessertList.innerHTML +=
+        `
+        <div class="component" data-js-component>
+            <div class="component__preview">
+                <picture>
+                    <source width="250" height="250" media="(min-width: 1023.98px)" srcset=${this.imageCollection.desktop}>
+                    <source width="250" height="250" media="(min-width: 767.98px)" srcset=${this.imageCollection.tablet}>
+                    
+                    <img src=${this.imageCollection.mobile} alt="A responsive descriptive image">
+                </picture>
+                <button class="button button--component" data-js-buy-button>
+                    <span class="icon icon--cart">
+                        Add to Cart
+                    </span>
+                </button>
             </div>
-            <div class="item__description" data-js-description>
-              <p class="item__subtitle">${this.category}</p>
-              <p class="item__title" data-js-item-title>${this.name}</p>
-              <p class="item__price" data-js-item-price>${this.price.toFixed(2)}$</p>
+            <div class="component__body">
+                <p class="component__subtitle">${this.category}</p>
+                <p class="component__title" data-js-component-name>${this.name}</p>
+                <p class="component__price" data-js-component-price>${this.price.toFixed(2)}$</p>
             </div>
-          </li>`
+        </div>
+        `
+    }
+
+    bindEvents() {
+
     }
 }
 
-export default Population
+
+ 
+export default Population;

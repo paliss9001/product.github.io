@@ -1,0 +1,56 @@
+@use '../helpers' as *;
+
+.order-confirmation {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    display: inline-flex;
+    flex-direction: column;
+    width: 500px;
+    row-gap: 2rem;
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    &__title {
+        @include fluid-text(36, 28);
+        font-weight: 700;
+        color: var(--rose-900);
+    }
+
+    &__confirmation {
+        color: var(--color-green);
+    }
+
+    &__message {
+        font-size: rem(14);
+        color: var(--rose-500);
+    }
+
+    &__body {
+        background-color: var(--rose-50);
+        border-radius: 12px;
+    }
+
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 1.5rem;
+        align-items: center;
+        color: var(--rose-900);
+    }
+
+    &__order {
+        font-weight: 700;
+        @include fluid-text(28, 22);
+
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+    }
+}

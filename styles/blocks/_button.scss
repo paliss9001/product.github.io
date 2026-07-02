@@ -1,18 +1,84 @@
-@use '../helpers/' as *;
+@use '../helpers' as *;
 
 .button {
     border-radius: 999px;
-    padding: .5rem 1.5rem;
-    border: 2px solid var(--rose-400);
-    white-space: nowrap;
-    font-weight: 600;
-    background-color: #fff;
     display: inline-flex;
     align-items: center;
-    transition-duration: 0.2s;
+    border: none;
+    background-color: var(--color-red);
+    // color: #fff;
+    text-align: center;
+    font-size: rem(14);
+    padding: .7rem;
+    transition-duration: .2s;
 
-    @include hover {
-        border-color: var(--rose-900);
-        background-color: var(--rose-50);
+    
+
+    &--purchase {
+        width: 100%;
+        justify-content: center;
+        color: #fff;
+        @include hover {
+            background-color: var(--on-transition);
+        }
+
     }
+
+    &--component {
+        translate: 0 -50%;
+        padding: .6rem 1.5rem;
+        background-color: #fff;
+
+        font-weight: 600;
+        border: 1px solid var(--rose-400);
+        transition-duration: .2s;
+        
+        @include hover {
+            background-color: var(--rose-100);
+        }
+    }
+
+        &--add-decrement {
+            column-gap: rem(35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--color-red);
+            color: #fff;
+
+            @include hover {
+                background-color: var(--on-transition);
+            }
+
+            &__decrement,
+            &__increment {
+                position: relative;
+                @include square(rem(24));
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border: 1px solid currentColor;
+                padding: rem(2);
+                border-radius: 50%;
+                transition-duration: .2s;
+
+                @include hover {
+                    color: var(--rose-500);
+                };
+
+                &::before {
+                    content: '';
+
+                    position: absolute;
+                    top: rem(-15);
+                    left: rem(-15);
+                    right: rem(-15);
+                    bottom: rem(-15);
+                }
+            }
+        }
+    
+
 }

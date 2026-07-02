@@ -1,0 +1,14 @@
+@use '../helpers' as *;
+
+.safe-delivery {
+    background-color: var(--rose-50);
+    padding-block: .6rem;
+    display: flex;
+    align-items: center;
+    padding: .4rem 3rem;
+    font-size: rem(14);
+
+    @include mobile {
+        padding-inline: 1rem;
+    }
+}

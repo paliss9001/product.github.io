@@ -6,11 +6,12 @@
 
 @use './blocks/icon';
 @use './blocks/button';
-@use './blocks/item';
-@use './blocks/list';
-@use './blocks/section';
-
-@use './blocks/empty-cart';
+@use './blocks/component';
 @use './blocks/cart';
-@use './blocks/product-card';
-@use './blocks/cancel';
+@use './blocks/item';
+@use './blocks/safe-delivery';
+@use './blocks/stress';
+
+@use './blocks/order-confirmation';
+
+@use './blocks/section';

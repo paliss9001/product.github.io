@@ -1,5 +1,5 @@
 import Population from "./Population.js";
-import Cart from "./Cart.js";
+import Purchase from "./Purchase.js";
 
 new Population()
-new Cart()
+new Purchase()

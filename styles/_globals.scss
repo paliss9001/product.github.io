@@ -14,3 +14,15 @@ body {
     font-family: var(--font-base);
     background-color: var(--rose-50);
 }
+
+h1 {
+    @include fluid-text(34, 26);
+
+    color: var(--rose-900);
+}
+
+h2 {
+    @include fluid-text(20, 18);
+
+    color: var(--color-red);
+}
