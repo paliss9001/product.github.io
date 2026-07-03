@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     padding: 1.5rem 1rem;
     border-radius: rem(16);
-    row-gap: 1rem;
+    row-gap: 2rem;
     width: max-content;
     min-width: fluid(300, 230);
 
@@ -39,7 +39,7 @@ body {
     &__purchase {
         display: flex;
         flex-direction: column;
-        row-gap: 1.5rem;
+        row-gap: 2rem;
         padding-block-start: 1.5rem;
         color: var(--rose-900);
     }

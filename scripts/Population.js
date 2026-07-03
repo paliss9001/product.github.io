@@ -1,3 +1,5 @@
+let id = 0
+
 class Population {
 
     constructor() {
@@ -29,15 +31,21 @@ class Component {
         this.category = category
         this.price = price
         this.imageCollection = imageCollection
+        
         this.bindEvents()
         this.populate()
+        
     }
 
     populate() {
-        this.dessertList.innerHTML +=
+        const div = document.createElement('div')
+        div.setAttribute('data-js-component', '')
+        div.setAttribute('data-id', id)
+        div.classList.add('component')
+
+        div.innerHTML = 
         `
-        <div class="component" data-js-component>
-            <div class="component__preview">
+         <div class="component__preview">
                 <picture>
                     <source width="250" height="250" media="(min-width: 1023.98px)" srcset=${this.imageCollection.desktop}>
                     <source width="250" height="250" media="(min-width: 767.98px)" srcset=${this.imageCollection.tablet}>
@@ -55,8 +63,12 @@ class Component {
                 <p class="component__title" data-js-component-name>${this.name}</p>
                 <p class="component__price" data-js-component-price>${this.price.toFixed(2)}$</p>
             </div>
-        </div>
         `
+        
+        
+        this.dessertList.append(div)
+
+        id++;
     }
 
     bindEvents() {

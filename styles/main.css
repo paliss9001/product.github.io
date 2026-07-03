@@ -339,6 +339,7 @@ svg * {
   }
 }
 .button--add-decrement {
+  translate: 0 -50%;
   -moz-column-gap: 2.1875rem;
        column-gap: 2.1875rem;
   display: flex;
@@ -427,7 +428,7 @@ body {
   flex-direction: column;
   padding: 1.5rem 1rem;
   border-radius: 1rem;
-  row-gap: 1rem;
+  row-gap: 2rem;
   width: -moz-max-content;
   width: max-content;
   min-width: clamp(14.375rem, 13.2598039216rem + 4.5751633987vw, 18.75rem);
@@ -460,7 +461,7 @@ body {
 .cart__purchase {
   display: flex;
   flex-direction: column;
-  row-gap: 1.5rem;
+  row-gap: 2rem;
   padding-block-start: 1.5rem;
   color: var(--rose-900);
 }
