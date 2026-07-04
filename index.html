@@ -17,11 +17,11 @@
         <div class="cart">
           <div class="cart__header">
             <h2 class="cart__title">
-              Your Cart (<span class="cart__items-count">0</span>)
+              Your Cart (<span class="cart__items-count" data-js-cart-items-count>0</span>)
             </h2>
           </div>
           <div class="cart__body">
-            <div class="cart--empty">
+            <div class="cart--empty is-empty" data-js-empty-cart-wrapper>
               <img
                 class="cart--empty__image"
                 src="./assets/images/illustration-empty-cart.svg"
@@ -31,7 +31,7 @@
                 Your added items will appear here
               </p>
             </div>
-            <div class="cart__main is-active" data-js-cart-main>
+            <div class="cart__main" data-js-cart-main data-js-cart-main>
                 <ul class="cart__list" data-js-cart-list>
                 </ul>
                 <div class="cart__purchase">
@@ -47,7 +47,7 @@
                         </span>
                     </div>
                     <div class="cart__actions">
-                    <button class="button button--purchase">Confirm Order</button>
+                    <button class="button button--purchase" data-js-cart-button>Confirm Order</button>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
         </span>
     </button> -->
 
-    <!-- <div class="order-confirmation">
+    <div class="order-confirmation visually-hidden"  data-js-confirmation>
         <div class="order-confirmation__description">
             <svg class="order-confirmation__confirmation" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21 32.121L13.5 24.6195L15.6195 22.5L21 27.879L32.3775 16.5L34.5 18.6225L21 32.121Z" fill="#1EA575"/>
@@ -87,27 +87,18 @@
             </div>
         </div>
         <div class="order-confirmation__body">
-            <ul class="order-confirmation__list">
+            <ul class="order-confirmation__list" data-js-confirmation-list>
                 <li class="cart__item item item--order-confirmation">
-                    <img src="./assets/images/image-cake-thumbnail.jpg" alt="">
-                    <div class="item__main">
-                        <p class="item__name">Classic Tiramisu</p>
-                        <div class="item__details">
-                            <p class="item__count">1x</p>
-                            <p class="item__price">$5.50</p>
-                        </div>
-                    </div>
-                    <div class="item__total-price--order-confirmation">$5.50</div>
-                </li>
 
+                </li>
             </ul>
             <div class="order-confirmation__total">
                 <p class="order-confirmation__text">Order total</p>
-                <p class="order-confirmation__order">$21</p>
+                <p class="order-confirmation__order" data-js-confirmation-total>$21</p>
             </div>
         </div>
-        <button class="button order-confirmation__button">Start New Order</button>
-    </div> -->
+        <button class="button order-confirmation__button" data-js-new-order>Start New Order</button>
+    </div>
   </body>
 </html>
 

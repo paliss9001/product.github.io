@@ -6,8 +6,19 @@
     padding: 2rem;
     display: inline-flex;
     flex-direction: column;
-    width: 500px;
     row-gap: 2rem;
+    transition-duration: .2s;
+
+    position: fixed;
+    // @include abs-center;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    
+    @include mobile {
+        position: static;
+        translate: 0;
+    }
 
     &__description {
         display: flex;
@@ -52,5 +63,6 @@
     &__button {
         display: inline-flex;
         justify-content: center;
+        color: #fff;
     }
 }

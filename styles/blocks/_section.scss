@@ -8,7 +8,7 @@ picture {
 
 .section {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(360px, 1fr);
     gap: rem(35);
     padding-block: 2rem;
 

@@ -582,8 +582,18 @@ body {
   padding: 2rem;
   display: inline-flex;
   flex-direction: column;
-  width: 500px;
   row-gap: 2rem;
+  transition-duration: 0.2s;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+@media (width <= 47.99875rem) {
+  .order-confirmation {
+    position: static;
+    translate: 0;
+  }
 }
 .order-confirmation__description {
   display: flex;
@@ -620,6 +630,7 @@ body {
 .order-confirmation__button {
   display: inline-flex;
   justify-content: center;
+  color: #fff;
 }
 
 picture {
@@ -630,7 +641,7 @@ picture {
 
 .section {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(360px, 1fr);
   gap: 2.1875rem;
   padding-block: 2rem;
 }
@@ -650,7 +661,7 @@ picture {
   grid-template-columns: repeat(var(--columns), 1fr);
   gap: 1.5625rem;
 }
-@media (width <= 63.99875rem) {
+@media (width <= 64.06125rem) {
   .section__list {
     --columns: 2;
   }
