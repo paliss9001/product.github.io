@@ -146,7 +146,9 @@ class ToggleButton {
         emptyCartWrapper: '[data-js-empty-cart-wrapper]',
         cartMain: '[data-js-cart-main]',
 
-        totalPriceAll: '[data-js-total-price-all]'
+        totalPriceAll: '[data-js-total-price-all]',
+
+        component: '[data-js-component]'
     }
 
     constructor(addToCartbutton,id) {
@@ -166,16 +168,20 @@ class ToggleButton {
         desserts[this.id]['count']++;
         
         this.toggleButton.innerHTML = `
-            <span class="button--add-decrement__decrement" data-js-decrement>
+            <button class="button--add-decrement__decrement" data-js-decrement aria-label="decrement">
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
-            </span>
+            </button>
             <span class="quantity" data-js-quantity>1</span>
-            <span class="button--add-decrement__increment" data-js-increment>
+            <button class="button--add-decrement__increment" data-js-increment aria-label="increment">
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
-            </span>
+            </button>
         `
 
         this.addToCartbutton.replaceWith(this.toggleButton)
+        this.component = this.toggleButton.closest(this.selectors.component)
+        this.picture = this.component.querySelector('picture')
+        this.picture.classList.add('is-active')
+
     
         this.quantity = this.toggleButton.querySelector(this.selectors.quantity)
         this.incrementIcon = this.toggleButton.querySelector(this.selectors.incrementIcon)
@@ -191,8 +197,8 @@ class ToggleButton {
         this.itemTotal.textContent = this.calculateTotal()
         this.totalPriceAll.textContent = this.formatter(this.overall())
 
+
         cartItemCOunt.textContent = this.calculateTotalItems()
-        console.log(this.cartList.children.length)
     }
 
     onIncrement = (event) => {
@@ -203,8 +209,11 @@ class ToggleButton {
     onDecrement = (event) => {
         if (desserts[this.id]['count'] - 1 <= 0) {
             this.listElement.remove()
-            this.toggleButton.replaceWith(this.originalButton)
             
+            this.picture.classList.remove('is-active')
+            this.toggleButton.replaceWith(this.originalButton)
+
+
             this.trackEmpty()
         }
         desserts[this.id]['count']--
@@ -213,7 +222,7 @@ class ToggleButton {
 
     createItem = () => {
         this.listElement = document.createElement('li')
-        this.listElement.classList.add('cart__item', 'item')
+        this.listElement.classList.add('cart__item', 'item', 'active')
 
         this.listElement.innerHTML = `
             <div class="item__main">
@@ -262,6 +271,7 @@ class ToggleButton {
         this.toggleButton.replaceWith(this.originalButton)
         desserts[this.id]['count'] = 0
         this.listElement.remove()
+        this.picture.classList.remove('is-active')
 
         this.updateValues()
         this.trackEmpty()

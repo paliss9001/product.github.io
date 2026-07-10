@@ -26,3 +26,8 @@ h2 {
 
     color: var(--color-red);
 }
+
+button:focus-visible {
+    outline: none;
+    border: 2px solid yellow;
+}

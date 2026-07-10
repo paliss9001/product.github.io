@@ -45,6 +45,11 @@ h2 {
   color: var(--color-red);
 }
 
+button:focus-visible {
+  outline: none;
+  border: 2px solid yellow;
+}
+
 /**
   Нормализация блочной модели
  */
@@ -429,9 +434,12 @@ body {
   padding: 1.5rem 1rem;
   border-radius: 1rem;
   row-gap: 2rem;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: clamp(14.375rem, 13.2598039216rem + 4.5751633987vw, 18.75rem);
+  width: 20rem;
+}
+@media (width <= 47.99875rem) {
+  .cart {
+    width: 100%;
+  }
 }
 .cart--empty {
   display: flex;
@@ -473,11 +481,6 @@ body {
   font-weight: 700;
   font-size: clamp(1.125rem, 1.0931372549rem + 0.1307189542vw, 1.25rem);
 }
-@media (width <= 47.99875rem) {
-  .cart {
-    width: auto;
-  }
-}
 .cart__main:not(.is-active) {
   border: 0;
   clip-path: inset(50%);
@@ -504,6 +507,7 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 0.3rem;
+  border: 2px solid var(--color);
 }
 .item__details {
   display: flex;
@@ -537,6 +541,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--rose-300);
+  cursor: pointer;
 }
 @media (any-hover: hover) {
   .item__cancel:hover {
@@ -635,13 +640,19 @@ body {
 
 picture {
   display: block;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+picture.is-active {
+  outline: 2px solid var(--color-red);
+  border-radius: 12px;
 }
 
 .section {
   display: grid;
-  grid-template-columns: auto minmax(360px, 1fr);
+  grid-template-columns: auto auto;
   gap: 2.1875rem;
   padding-block: 2rem;
 }
@@ -670,4 +681,8 @@ picture {
   .section__list {
     --columns: 1;
   }
+}
+
+.overlay {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

@@ -3,6 +3,7 @@
 .component {
     display: inline-flex;
     flex-direction: column;
+    
 
     &__subtitle  {
         color: var(--rose-500);
@@ -32,5 +33,6 @@
 
     &__image {
         border-radius: rem(14);
+        
     }
 }

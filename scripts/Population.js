@@ -45,12 +45,12 @@ class Component {
 
         div.innerHTML = 
         `
-         <div class="component__preview">
+         <div class="component__preview" tabindex="0">
                 <picture>
                     <source width="250" height="250" media="(min-width: 1023.98px)" srcset=${this.imageCollection.desktop}>
                     <source width="250" height="250" media="(min-width: 767.98px)" srcset=${this.imageCollection.tablet}>
                     
-                    <img src=${this.imageCollection.mobile} alt="A responsive descriptive image">
+                    <img src=${this.imageCollection.mobile} width="250" height="250" alt="A responsive descriptive image">
                 </picture>
                 <button class="button button--component" data-js-buy-button>
                     <span class="icon icon--cart">
