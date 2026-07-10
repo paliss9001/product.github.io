@@ -317,7 +317,7 @@ class PopulateMap {
     }
 
     init() {
-        fetch('../data.json')
+        fetch('./data.json')
         .then(response => response.json())
         .then(json => {
             for (const field of json) {
