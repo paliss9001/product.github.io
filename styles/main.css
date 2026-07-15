@@ -292,11 +292,11 @@ svg * {
   background-size: contain;
 }
 .icon--cart::before {
-  background-image: url("../../assets/images/icon-add-to-cart.svg");
+  background-image: url("../assets/images/icon-add-to-cart.svg");
   display: inline;
 }
 .icon--carbon::before {
-  background-image: url("../../assets/images/icon-carbon-neutral.svg");
+  background-image: url("../assets/images/icon-carbon-neutral.svg");
 }
 
 .button {
